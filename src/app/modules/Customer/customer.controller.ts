@@ -13,6 +13,19 @@ const createCustomerIntoDb = catchAsync(async (req, res) => {
   });
 });
 
+const getAllCustomersFromDbWithQuery = catchAsync(async (req, res) => {
+  const customers = await customerService.getAllCustomersFromDbWithQuery(
+    req?.query
+  );
+  sendResponse(res, {
+    statusCode: status.OK,
+    success: true,
+    message: "Customers Retrieved Successfully",
+    data: customers,
+  });
+})
+
 export const customerController = {
   createCustomerIntoDb,
+  getAllCustomersFromDbWithQuery
 };
