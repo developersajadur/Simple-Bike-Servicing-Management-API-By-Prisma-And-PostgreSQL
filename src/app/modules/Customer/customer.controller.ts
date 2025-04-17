@@ -25,7 +25,42 @@ const getAllCustomersFromDbWithQuery = catchAsync(async (req, res) => {
   });
 })
 
+const getSingleCustomerFromDb = catchAsync(async (req, res) => {
+  const customer = await customerService.getSingleCustomerFromDb(req?.params?.id);
+  sendResponse(res, {
+    statusCode: status.OK,
+    success: true,
+    message: "Customer Retrieved Successfully",
+    data: customer,
+  });
+})
+
+const updateCustomerIntoDb = catchAsync(async (req, res) => {
+  const customer = await customerService.updateCustomerIntoDb(req?.params?.id, req?.body);
+  sendResponse(res, {
+    statusCode: status.OK,
+    success: true,
+    message: "Customer Updated Successfully",
+    data: customer,
+  });
+})
+
+const softDeleteCustomerFromDb = catchAsync(async (req, res) => {
+  await customerService.softDeleteCustomerFromDb(req?.params?.id);
+  sendResponse(res, {
+    statusCode: status.OK,
+    success: true,
+    message: "Customer Deleted Successfully",
+    data: null,
+  });
+})
+
+
+
 export const customerController = {
   createCustomerIntoDb,
-  getAllCustomersFromDbWithQuery
+  getAllCustomersFromDbWithQuery,
+  getSingleCustomerFromDb,
+  updateCustomerIntoDb,
+  softDeleteCustomerFromDb
 };

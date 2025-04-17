@@ -122,6 +122,7 @@ exports.Prisma.CustomerScalarFieldEnum = {
   name: 'name',
   email: 'email',
   phone: 'phone',
+  isDeleted: 'isDeleted',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 };
@@ -132,6 +133,7 @@ exports.Prisma.BikeScalarFieldEnum = {
   model: 'model',
   year: 'year',
   customerId: 'customerId',
+  isDeleted: 'isDeleted',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 };
@@ -143,6 +145,7 @@ exports.Prisma.ServiceRecordScalarFieldEnum = {
   completionDate: 'completionDate',
   description: 'description',
   status: 'status',
+  isDeleted: 'isDeleted',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 };

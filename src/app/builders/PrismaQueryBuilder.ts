@@ -1,6 +1,3 @@
-// import { PrismaClient } from '@prisma/client';
-// const prisma = new PrismaClient();
-
 interface QueryOptions<T> {
   model: {
     findMany: (args: any) => Promise<T[]>;
@@ -26,6 +23,7 @@ export async function PrismaQueryBuilder<T>({
   limit = 10,
 }: QueryOptions<T>) {
   const skip = (page - 1) * limit;
+
   let searchFilter = {};
 
   if (search && searchFields.length > 0) {
@@ -36,7 +34,13 @@ export async function PrismaQueryBuilder<T>({
     };
   }
 
-  const combinedWhere = { AND: [where, searchFilter] };
+  const combinedWhere = {
+    AND: [
+      { isDeleted: false },
+      where,
+      searchFilter
+    ]
+  };
 
   const result = await model.findMany({
     where: combinedWhere,

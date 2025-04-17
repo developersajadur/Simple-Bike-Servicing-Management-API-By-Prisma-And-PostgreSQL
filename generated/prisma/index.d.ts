@@ -1145,6 +1145,7 @@ export namespace Prisma {
     name: string | null
     email: string | null
     phone: string | null
+    isDeleted: boolean | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -1154,6 +1155,7 @@ export namespace Prisma {
     name: string | null
     email: string | null
     phone: string | null
+    isDeleted: boolean | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -1163,6 +1165,7 @@ export namespace Prisma {
     name: number
     email: number
     phone: number
+    isDeleted: number
     createdAt: number
     updatedAt: number
     _all: number
@@ -1174,6 +1177,7 @@ export namespace Prisma {
     name?: true
     email?: true
     phone?: true
+    isDeleted?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -1183,6 +1187,7 @@ export namespace Prisma {
     name?: true
     email?: true
     phone?: true
+    isDeleted?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -1192,6 +1197,7 @@ export namespace Prisma {
     name?: true
     email?: true
     phone?: true
+    isDeleted?: true
     createdAt?: true
     updatedAt?: true
     _all?: true
@@ -1274,6 +1280,7 @@ export namespace Prisma {
     name: string
     email: string
     phone: string
+    isDeleted: boolean
     createdAt: Date
     updatedAt: Date
     _count: CustomerCountAggregateOutputType | null
@@ -1300,6 +1307,7 @@ export namespace Prisma {
     name?: boolean
     email?: boolean
     phone?: boolean
+    isDeleted?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     bikes?: boolean | Customer$bikesArgs<ExtArgs>
@@ -1311,6 +1319,7 @@ export namespace Prisma {
     name?: boolean
     email?: boolean
     phone?: boolean
+    isDeleted?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }, ExtArgs["result"]["customer"]>
@@ -1320,6 +1329,7 @@ export namespace Prisma {
     name?: boolean
     email?: boolean
     phone?: boolean
+    isDeleted?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }, ExtArgs["result"]["customer"]>
@@ -1329,11 +1339,12 @@ export namespace Prisma {
     name?: boolean
     email?: boolean
     phone?: boolean
+    isDeleted?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }
 
-  export type CustomerOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"customerId" | "name" | "email" | "phone" | "createdAt" | "updatedAt", ExtArgs["result"]["customer"]>
+  export type CustomerOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"customerId" | "name" | "email" | "phone" | "isDeleted" | "createdAt" | "updatedAt", ExtArgs["result"]["customer"]>
   export type CustomerInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     bikes?: boolean | Customer$bikesArgs<ExtArgs>
     _count?: boolean | CustomerCountOutputTypeDefaultArgs<ExtArgs>
@@ -1351,6 +1362,7 @@ export namespace Prisma {
       name: string
       email: string
       phone: string
+      isDeleted: boolean
       createdAt: Date
       updatedAt: Date
     }, ExtArgs["result"]["customer"]>
@@ -1781,6 +1793,7 @@ export namespace Prisma {
     readonly name: FieldRef<"Customer", 'String'>
     readonly email: FieldRef<"Customer", 'String'>
     readonly phone: FieldRef<"Customer", 'String'>
+    readonly isDeleted: FieldRef<"Customer", 'Boolean'>
     readonly createdAt: FieldRef<"Customer", 'DateTime'>
     readonly updatedAt: FieldRef<"Customer", 'DateTime'>
   }
@@ -2239,6 +2252,7 @@ export namespace Prisma {
     model: string | null
     year: number | null
     customerId: string | null
+    isDeleted: boolean | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -2249,6 +2263,7 @@ export namespace Prisma {
     model: string | null
     year: number | null
     customerId: string | null
+    isDeleted: boolean | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -2259,6 +2274,7 @@ export namespace Prisma {
     model: number
     year: number
     customerId: number
+    isDeleted: number
     createdAt: number
     updatedAt: number
     _all: number
@@ -2279,6 +2295,7 @@ export namespace Prisma {
     model?: true
     year?: true
     customerId?: true
+    isDeleted?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -2289,6 +2306,7 @@ export namespace Prisma {
     model?: true
     year?: true
     customerId?: true
+    isDeleted?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -2299,6 +2317,7 @@ export namespace Prisma {
     model?: true
     year?: true
     customerId?: true
+    isDeleted?: true
     createdAt?: true
     updatedAt?: true
     _all?: true
@@ -2396,6 +2415,7 @@ export namespace Prisma {
     model: string
     year: number
     customerId: string
+    isDeleted: boolean
     createdAt: Date
     updatedAt: Date
     _count: BikeCountAggregateOutputType | null
@@ -2425,6 +2445,7 @@ export namespace Prisma {
     model?: boolean
     year?: boolean
     customerId?: boolean
+    isDeleted?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     serviceRecords?: boolean | Bike$serviceRecordsArgs<ExtArgs>
@@ -2438,6 +2459,7 @@ export namespace Prisma {
     model?: boolean
     year?: boolean
     customerId?: boolean
+    isDeleted?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     customer?: boolean | CustomerDefaultArgs<ExtArgs>
@@ -2449,6 +2471,7 @@ export namespace Prisma {
     model?: boolean
     year?: boolean
     customerId?: boolean
+    isDeleted?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     customer?: boolean | CustomerDefaultArgs<ExtArgs>
@@ -2460,11 +2483,12 @@ export namespace Prisma {
     model?: boolean
     year?: boolean
     customerId?: boolean
+    isDeleted?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }
 
-  export type BikeOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"bikeId" | "brand" | "model" | "year" | "customerId" | "createdAt" | "updatedAt", ExtArgs["result"]["bike"]>
+  export type BikeOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"bikeId" | "brand" | "model" | "year" | "customerId" | "isDeleted" | "createdAt" | "updatedAt", ExtArgs["result"]["bike"]>
   export type BikeInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     serviceRecords?: boolean | Bike$serviceRecordsArgs<ExtArgs>
     customer?: boolean | CustomerDefaultArgs<ExtArgs>
@@ -2489,6 +2513,7 @@ export namespace Prisma {
       model: string
       year: number
       customerId: string
+      isDeleted: boolean
       createdAt: Date
       updatedAt: Date
     }, ExtArgs["result"]["bike"]>
@@ -2921,6 +2946,7 @@ export namespace Prisma {
     readonly model: FieldRef<"Bike", 'String'>
     readonly year: FieldRef<"Bike", 'Int'>
     readonly customerId: FieldRef<"Bike", 'String'>
+    readonly isDeleted: FieldRef<"Bike", 'Boolean'>
     readonly createdAt: FieldRef<"Bike", 'DateTime'>
     readonly updatedAt: FieldRef<"Bike", 'DateTime'>
   }
@@ -3378,6 +3404,7 @@ export namespace Prisma {
     completionDate: Date | null
     description: string | null
     status: $Enums.ServiceRecordStatus | null
+    isDeleted: boolean | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -3389,6 +3416,7 @@ export namespace Prisma {
     completionDate: Date | null
     description: string | null
     status: $Enums.ServiceRecordStatus | null
+    isDeleted: boolean | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -3400,6 +3428,7 @@ export namespace Prisma {
     completionDate: number
     description: number
     status: number
+    isDeleted: number
     createdAt: number
     updatedAt: number
     _all: number
@@ -3413,6 +3442,7 @@ export namespace Prisma {
     completionDate?: true
     description?: true
     status?: true
+    isDeleted?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -3424,6 +3454,7 @@ export namespace Prisma {
     completionDate?: true
     description?: true
     status?: true
+    isDeleted?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -3435,6 +3466,7 @@ export namespace Prisma {
     completionDate?: true
     description?: true
     status?: true
+    isDeleted?: true
     createdAt?: true
     updatedAt?: true
     _all?: true
@@ -3519,6 +3551,7 @@ export namespace Prisma {
     completionDate: Date | null
     description: string
     status: $Enums.ServiceRecordStatus
+    isDeleted: boolean
     createdAt: Date
     updatedAt: Date
     _count: ServiceRecordCountAggregateOutputType | null
@@ -3547,6 +3580,7 @@ export namespace Prisma {
     completionDate?: boolean
     description?: boolean
     status?: boolean
+    isDeleted?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     Bike?: boolean | BikeDefaultArgs<ExtArgs>
@@ -3559,6 +3593,7 @@ export namespace Prisma {
     completionDate?: boolean
     description?: boolean
     status?: boolean
+    isDeleted?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     Bike?: boolean | BikeDefaultArgs<ExtArgs>
@@ -3571,6 +3606,7 @@ export namespace Prisma {
     completionDate?: boolean
     description?: boolean
     status?: boolean
+    isDeleted?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     Bike?: boolean | BikeDefaultArgs<ExtArgs>
@@ -3583,11 +3619,12 @@ export namespace Prisma {
     completionDate?: boolean
     description?: boolean
     status?: boolean
+    isDeleted?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }
 
-  export type ServiceRecordOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"serviceId" | "bikeId" | "serviceDate" | "completionDate" | "description" | "status" | "createdAt" | "updatedAt", ExtArgs["result"]["serviceRecord"]>
+  export type ServiceRecordOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"serviceId" | "bikeId" | "serviceDate" | "completionDate" | "description" | "status" | "isDeleted" | "createdAt" | "updatedAt", ExtArgs["result"]["serviceRecord"]>
   export type ServiceRecordInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     Bike?: boolean | BikeDefaultArgs<ExtArgs>
   }
@@ -3610,6 +3647,7 @@ export namespace Prisma {
       completionDate: Date | null
       description: string
       status: $Enums.ServiceRecordStatus
+      isDeleted: boolean
       createdAt: Date
       updatedAt: Date
     }, ExtArgs["result"]["serviceRecord"]>
@@ -4042,6 +4080,7 @@ export namespace Prisma {
     readonly completionDate: FieldRef<"ServiceRecord", 'DateTime'>
     readonly description: FieldRef<"ServiceRecord", 'String'>
     readonly status: FieldRef<"ServiceRecord", 'ServiceRecordStatus'>
+    readonly isDeleted: FieldRef<"ServiceRecord", 'Boolean'>
     readonly createdAt: FieldRef<"ServiceRecord", 'DateTime'>
     readonly updatedAt: FieldRef<"ServiceRecord", 'DateTime'>
   }
@@ -4477,6 +4516,7 @@ export namespace Prisma {
     name: 'name',
     email: 'email',
     phone: 'phone',
+    isDeleted: 'isDeleted',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt'
   };
@@ -4490,6 +4530,7 @@ export namespace Prisma {
     model: 'model',
     year: 'year',
     customerId: 'customerId',
+    isDeleted: 'isDeleted',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt'
   };
@@ -4504,6 +4545,7 @@ export namespace Prisma {
     completionDate: 'completionDate',
     description: 'description',
     status: 'status',
+    isDeleted: 'isDeleted',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt'
   };
@@ -4551,6 +4593,13 @@ export namespace Prisma {
    * Reference to a field of type 'String[]'
    */
   export type ListStringFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'String[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'Boolean'
+   */
+  export type BooleanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Boolean'>
     
 
 
@@ -4621,6 +4670,7 @@ export namespace Prisma {
     name?: StringFilter<"Customer"> | string
     email?: StringFilter<"Customer"> | string
     phone?: StringFilter<"Customer"> | string
+    isDeleted?: BoolFilter<"Customer"> | boolean
     createdAt?: DateTimeFilter<"Customer"> | Date | string
     updatedAt?: DateTimeFilter<"Customer"> | Date | string
     bikes?: BikeListRelationFilter
@@ -4631,6 +4681,7 @@ export namespace Prisma {
     name?: SortOrder
     email?: SortOrder
     phone?: SortOrder
+    isDeleted?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     bikes?: BikeOrderByRelationAggregateInput
@@ -4644,6 +4695,7 @@ export namespace Prisma {
     NOT?: CustomerWhereInput | CustomerWhereInput[]
     name?: StringFilter<"Customer"> | string
     phone?: StringFilter<"Customer"> | string
+    isDeleted?: BoolFilter<"Customer"> | boolean
     createdAt?: DateTimeFilter<"Customer"> | Date | string
     updatedAt?: DateTimeFilter<"Customer"> | Date | string
     bikes?: BikeListRelationFilter
@@ -4654,6 +4706,7 @@ export namespace Prisma {
     name?: SortOrder
     email?: SortOrder
     phone?: SortOrder
+    isDeleted?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     _count?: CustomerCountOrderByAggregateInput
@@ -4669,6 +4722,7 @@ export namespace Prisma {
     name?: StringWithAggregatesFilter<"Customer"> | string
     email?: StringWithAggregatesFilter<"Customer"> | string
     phone?: StringWithAggregatesFilter<"Customer"> | string
+    isDeleted?: BoolWithAggregatesFilter<"Customer"> | boolean
     createdAt?: DateTimeWithAggregatesFilter<"Customer"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"Customer"> | Date | string
   }
@@ -4682,6 +4736,7 @@ export namespace Prisma {
     model?: StringFilter<"Bike"> | string
     year?: IntFilter<"Bike"> | number
     customerId?: StringFilter<"Bike"> | string
+    isDeleted?: BoolFilter<"Bike"> | boolean
     createdAt?: DateTimeFilter<"Bike"> | Date | string
     updatedAt?: DateTimeFilter<"Bike"> | Date | string
     serviceRecords?: ServiceRecordListRelationFilter
@@ -4694,6 +4749,7 @@ export namespace Prisma {
     model?: SortOrder
     year?: SortOrder
     customerId?: SortOrder
+    isDeleted?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     serviceRecords?: ServiceRecordOrderByRelationAggregateInput
@@ -4709,6 +4765,7 @@ export namespace Prisma {
     model?: StringFilter<"Bike"> | string
     year?: IntFilter<"Bike"> | number
     customerId?: StringFilter<"Bike"> | string
+    isDeleted?: BoolFilter<"Bike"> | boolean
     createdAt?: DateTimeFilter<"Bike"> | Date | string
     updatedAt?: DateTimeFilter<"Bike"> | Date | string
     serviceRecords?: ServiceRecordListRelationFilter
@@ -4721,6 +4778,7 @@ export namespace Prisma {
     model?: SortOrder
     year?: SortOrder
     customerId?: SortOrder
+    isDeleted?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     _count?: BikeCountOrderByAggregateInput
@@ -4739,6 +4797,7 @@ export namespace Prisma {
     model?: StringWithAggregatesFilter<"Bike"> | string
     year?: IntWithAggregatesFilter<"Bike"> | number
     customerId?: StringWithAggregatesFilter<"Bike"> | string
+    isDeleted?: BoolWithAggregatesFilter<"Bike"> | boolean
     createdAt?: DateTimeWithAggregatesFilter<"Bike"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"Bike"> | Date | string
   }
@@ -4753,6 +4812,7 @@ export namespace Prisma {
     completionDate?: DateTimeNullableFilter<"ServiceRecord"> | Date | string | null
     description?: StringFilter<"ServiceRecord"> | string
     status?: EnumServiceRecordStatusFilter<"ServiceRecord"> | $Enums.ServiceRecordStatus
+    isDeleted?: BoolFilter<"ServiceRecord"> | boolean
     createdAt?: DateTimeFilter<"ServiceRecord"> | Date | string
     updatedAt?: DateTimeFilter<"ServiceRecord"> | Date | string
     Bike?: XOR<BikeScalarRelationFilter, BikeWhereInput>
@@ -4765,6 +4825,7 @@ export namespace Prisma {
     completionDate?: SortOrderInput | SortOrder
     description?: SortOrder
     status?: SortOrder
+    isDeleted?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     Bike?: BikeOrderByWithRelationInput
@@ -4780,6 +4841,7 @@ export namespace Prisma {
     completionDate?: DateTimeNullableFilter<"ServiceRecord"> | Date | string | null
     description?: StringFilter<"ServiceRecord"> | string
     status?: EnumServiceRecordStatusFilter<"ServiceRecord"> | $Enums.ServiceRecordStatus
+    isDeleted?: BoolFilter<"ServiceRecord"> | boolean
     createdAt?: DateTimeFilter<"ServiceRecord"> | Date | string
     updatedAt?: DateTimeFilter<"ServiceRecord"> | Date | string
     Bike?: XOR<BikeScalarRelationFilter, BikeWhereInput>
@@ -4792,6 +4854,7 @@ export namespace Prisma {
     completionDate?: SortOrderInput | SortOrder
     description?: SortOrder
     status?: SortOrder
+    isDeleted?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     _count?: ServiceRecordCountOrderByAggregateInput
@@ -4809,6 +4872,7 @@ export namespace Prisma {
     completionDate?: DateTimeNullableWithAggregatesFilter<"ServiceRecord"> | Date | string | null
     description?: StringWithAggregatesFilter<"ServiceRecord"> | string
     status?: EnumServiceRecordStatusWithAggregatesFilter<"ServiceRecord"> | $Enums.ServiceRecordStatus
+    isDeleted?: BoolWithAggregatesFilter<"ServiceRecord"> | boolean
     createdAt?: DateTimeWithAggregatesFilter<"ServiceRecord"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"ServiceRecord"> | Date | string
   }
@@ -4818,6 +4882,7 @@ export namespace Prisma {
     name: string
     email: string
     phone: string
+    isDeleted?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
     bikes?: BikeCreateNestedManyWithoutCustomerInput
@@ -4828,6 +4893,7 @@ export namespace Prisma {
     name: string
     email: string
     phone: string
+    isDeleted?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
     bikes?: BikeUncheckedCreateNestedManyWithoutCustomerInput
@@ -4838,6 +4904,7 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     phone?: StringFieldUpdateOperationsInput | string
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     bikes?: BikeUpdateManyWithoutCustomerNestedInput
@@ -4848,6 +4915,7 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     phone?: StringFieldUpdateOperationsInput | string
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     bikes?: BikeUncheckedUpdateManyWithoutCustomerNestedInput
@@ -4858,6 +4926,7 @@ export namespace Prisma {
     name: string
     email: string
     phone: string
+    isDeleted?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -4867,6 +4936,7 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     phone?: StringFieldUpdateOperationsInput | string
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -4876,6 +4946,7 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     phone?: StringFieldUpdateOperationsInput | string
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -4885,6 +4956,7 @@ export namespace Prisma {
     brand: string
     model: string
     year: number
+    isDeleted?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
     serviceRecords?: ServiceRecordCreateNestedManyWithoutBikeInput
@@ -4897,6 +4969,7 @@ export namespace Prisma {
     model: string
     year: number
     customerId: string
+    isDeleted?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
     serviceRecords?: ServiceRecordUncheckedCreateNestedManyWithoutBikeInput
@@ -4907,6 +4980,7 @@ export namespace Prisma {
     brand?: StringFieldUpdateOperationsInput | string
     model?: StringFieldUpdateOperationsInput | string
     year?: IntFieldUpdateOperationsInput | number
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     serviceRecords?: ServiceRecordUpdateManyWithoutBikeNestedInput
@@ -4919,6 +4993,7 @@ export namespace Prisma {
     model?: StringFieldUpdateOperationsInput | string
     year?: IntFieldUpdateOperationsInput | number
     customerId?: StringFieldUpdateOperationsInput | string
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     serviceRecords?: ServiceRecordUncheckedUpdateManyWithoutBikeNestedInput
@@ -4930,6 +5005,7 @@ export namespace Prisma {
     model: string
     year: number
     customerId: string
+    isDeleted?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -4939,6 +5015,7 @@ export namespace Prisma {
     brand?: StringFieldUpdateOperationsInput | string
     model?: StringFieldUpdateOperationsInput | string
     year?: IntFieldUpdateOperationsInput | number
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -4949,6 +5026,7 @@ export namespace Prisma {
     model?: StringFieldUpdateOperationsInput | string
     year?: IntFieldUpdateOperationsInput | number
     customerId?: StringFieldUpdateOperationsInput | string
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -4959,6 +5037,7 @@ export namespace Prisma {
     completionDate?: Date | string | null
     description: string
     status: $Enums.ServiceRecordStatus
+    isDeleted?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
     Bike: BikeCreateNestedOneWithoutServiceRecordsInput
@@ -4971,6 +5050,7 @@ export namespace Prisma {
     completionDate?: Date | string | null
     description: string
     status: $Enums.ServiceRecordStatus
+    isDeleted?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -4981,6 +5061,7 @@ export namespace Prisma {
     completionDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     description?: StringFieldUpdateOperationsInput | string
     status?: EnumServiceRecordStatusFieldUpdateOperationsInput | $Enums.ServiceRecordStatus
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     Bike?: BikeUpdateOneRequiredWithoutServiceRecordsNestedInput
@@ -4993,6 +5074,7 @@ export namespace Prisma {
     completionDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     description?: StringFieldUpdateOperationsInput | string
     status?: EnumServiceRecordStatusFieldUpdateOperationsInput | $Enums.ServiceRecordStatus
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -5004,6 +5086,7 @@ export namespace Prisma {
     completionDate?: Date | string | null
     description: string
     status: $Enums.ServiceRecordStatus
+    isDeleted?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -5014,6 +5097,7 @@ export namespace Prisma {
     completionDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     description?: StringFieldUpdateOperationsInput | string
     status?: EnumServiceRecordStatusFieldUpdateOperationsInput | $Enums.ServiceRecordStatus
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -5025,6 +5109,7 @@ export namespace Prisma {
     completionDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     description?: StringFieldUpdateOperationsInput | string
     status?: EnumServiceRecordStatusFieldUpdateOperationsInput | $Enums.ServiceRecordStatus
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -5042,6 +5127,11 @@ export namespace Prisma {
     endsWith?: string | StringFieldRefInput<$PrismaModel>
     mode?: QueryMode
     not?: NestedStringFilter<$PrismaModel> | string
+  }
+
+  export type BoolFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolFilter<$PrismaModel> | boolean
   }
 
   export type DateTimeFilter<$PrismaModel = never> = {
@@ -5070,6 +5160,7 @@ export namespace Prisma {
     name?: SortOrder
     email?: SortOrder
     phone?: SortOrder
+    isDeleted?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -5079,6 +5170,7 @@ export namespace Prisma {
     name?: SortOrder
     email?: SortOrder
     phone?: SortOrder
+    isDeleted?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -5088,6 +5180,7 @@ export namespace Prisma {
     name?: SortOrder
     email?: SortOrder
     phone?: SortOrder
+    isDeleted?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -5108,6 +5201,14 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedStringFilter<$PrismaModel>
     _max?: NestedStringFilter<$PrismaModel>
+  }
+
+  export type BoolWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedBoolFilter<$PrismaModel>
+    _max?: NestedBoolFilter<$PrismaModel>
   }
 
   export type DateTimeWithAggregatesFilter<$PrismaModel = never> = {
@@ -5156,6 +5257,7 @@ export namespace Prisma {
     model?: SortOrder
     year?: SortOrder
     customerId?: SortOrder
+    isDeleted?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -5170,6 +5272,7 @@ export namespace Prisma {
     model?: SortOrder
     year?: SortOrder
     customerId?: SortOrder
+    isDeleted?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -5180,6 +5283,7 @@ export namespace Prisma {
     model?: SortOrder
     year?: SortOrder
     customerId?: SortOrder
+    isDeleted?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -5239,6 +5343,7 @@ export namespace Prisma {
     completionDate?: SortOrder
     description?: SortOrder
     status?: SortOrder
+    isDeleted?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -5250,6 +5355,7 @@ export namespace Prisma {
     completionDate?: SortOrder
     description?: SortOrder
     status?: SortOrder
+    isDeleted?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -5261,6 +5367,7 @@ export namespace Prisma {
     completionDate?: SortOrder
     description?: SortOrder
     status?: SortOrder
+    isDeleted?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -5305,6 +5412,10 @@ export namespace Prisma {
 
   export type StringFieldUpdateOperationsInput = {
     set?: string
+  }
+
+  export type BoolFieldUpdateOperationsInput = {
+    set?: boolean
   }
 
   export type DateTimeFieldUpdateOperationsInput = {
@@ -5439,6 +5550,11 @@ export namespace Prisma {
     not?: NestedStringFilter<$PrismaModel> | string
   }
 
+  export type NestedBoolFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolFilter<$PrismaModel> | boolean
+  }
+
   export type NestedDateTimeFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
@@ -5476,6 +5592,14 @@ export namespace Prisma {
     gt?: number | IntFieldRefInput<$PrismaModel>
     gte?: number | IntFieldRefInput<$PrismaModel>
     not?: NestedIntFilter<$PrismaModel> | number
+  }
+
+  export type NestedBoolWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedBoolFilter<$PrismaModel>
+    _max?: NestedBoolFilter<$PrismaModel>
   }
 
   export type NestedDateTimeWithAggregatesFilter<$PrismaModel = never> = {
@@ -5577,6 +5701,7 @@ export namespace Prisma {
     brand: string
     model: string
     year: number
+    isDeleted?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
     serviceRecords?: ServiceRecordCreateNestedManyWithoutBikeInput
@@ -5587,6 +5712,7 @@ export namespace Prisma {
     brand: string
     model: string
     year: number
+    isDeleted?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
     serviceRecords?: ServiceRecordUncheckedCreateNestedManyWithoutBikeInput
@@ -5627,6 +5753,7 @@ export namespace Prisma {
     model?: StringFilter<"Bike"> | string
     year?: IntFilter<"Bike"> | number
     customerId?: StringFilter<"Bike"> | string
+    isDeleted?: BoolFilter<"Bike"> | boolean
     createdAt?: DateTimeFilter<"Bike"> | Date | string
     updatedAt?: DateTimeFilter<"Bike"> | Date | string
   }
@@ -5637,6 +5764,7 @@ export namespace Prisma {
     completionDate?: Date | string | null
     description: string
     status: $Enums.ServiceRecordStatus
+    isDeleted?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -5647,6 +5775,7 @@ export namespace Prisma {
     completionDate?: Date | string | null
     description: string
     status: $Enums.ServiceRecordStatus
+    isDeleted?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -5666,6 +5795,7 @@ export namespace Prisma {
     name: string
     email: string
     phone: string
+    isDeleted?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -5675,6 +5805,7 @@ export namespace Prisma {
     name: string
     email: string
     phone: string
+    isDeleted?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -5710,6 +5841,7 @@ export namespace Prisma {
     completionDate?: DateTimeNullableFilter<"ServiceRecord"> | Date | string | null
     description?: StringFilter<"ServiceRecord"> | string
     status?: EnumServiceRecordStatusFilter<"ServiceRecord"> | $Enums.ServiceRecordStatus
+    isDeleted?: BoolFilter<"ServiceRecord"> | boolean
     createdAt?: DateTimeFilter<"ServiceRecord"> | Date | string
     updatedAt?: DateTimeFilter<"ServiceRecord"> | Date | string
   }
@@ -5730,6 +5862,7 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     phone?: StringFieldUpdateOperationsInput | string
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -5739,6 +5872,7 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     phone?: StringFieldUpdateOperationsInput | string
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -5748,6 +5882,7 @@ export namespace Prisma {
     brand: string
     model: string
     year: number
+    isDeleted?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
     customer: CustomerCreateNestedOneWithoutBikesInput
@@ -5759,6 +5894,7 @@ export namespace Prisma {
     model: string
     year: number
     customerId: string
+    isDeleted?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -5784,6 +5920,7 @@ export namespace Prisma {
     brand?: StringFieldUpdateOperationsInput | string
     model?: StringFieldUpdateOperationsInput | string
     year?: IntFieldUpdateOperationsInput | number
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     customer?: CustomerUpdateOneRequiredWithoutBikesNestedInput
@@ -5795,6 +5932,7 @@ export namespace Prisma {
     model?: StringFieldUpdateOperationsInput | string
     year?: IntFieldUpdateOperationsInput | number
     customerId?: StringFieldUpdateOperationsInput | string
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -5804,6 +5942,7 @@ export namespace Prisma {
     brand: string
     model: string
     year: number
+    isDeleted?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -5813,6 +5952,7 @@ export namespace Prisma {
     brand?: StringFieldUpdateOperationsInput | string
     model?: StringFieldUpdateOperationsInput | string
     year?: IntFieldUpdateOperationsInput | number
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     serviceRecords?: ServiceRecordUpdateManyWithoutBikeNestedInput
@@ -5823,6 +5963,7 @@ export namespace Prisma {
     brand?: StringFieldUpdateOperationsInput | string
     model?: StringFieldUpdateOperationsInput | string
     year?: IntFieldUpdateOperationsInput | number
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     serviceRecords?: ServiceRecordUncheckedUpdateManyWithoutBikeNestedInput
@@ -5833,6 +5974,7 @@ export namespace Prisma {
     brand?: StringFieldUpdateOperationsInput | string
     model?: StringFieldUpdateOperationsInput | string
     year?: IntFieldUpdateOperationsInput | number
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -5843,6 +5985,7 @@ export namespace Prisma {
     completionDate?: Date | string | null
     description: string
     status: $Enums.ServiceRecordStatus
+    isDeleted?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -5853,6 +5996,7 @@ export namespace Prisma {
     completionDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     description?: StringFieldUpdateOperationsInput | string
     status?: EnumServiceRecordStatusFieldUpdateOperationsInput | $Enums.ServiceRecordStatus
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -5863,6 +6007,7 @@ export namespace Prisma {
     completionDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     description?: StringFieldUpdateOperationsInput | string
     status?: EnumServiceRecordStatusFieldUpdateOperationsInput | $Enums.ServiceRecordStatus
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -5873,6 +6018,7 @@ export namespace Prisma {
     completionDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     description?: StringFieldUpdateOperationsInput | string
     status?: EnumServiceRecordStatusFieldUpdateOperationsInput | $Enums.ServiceRecordStatus
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
