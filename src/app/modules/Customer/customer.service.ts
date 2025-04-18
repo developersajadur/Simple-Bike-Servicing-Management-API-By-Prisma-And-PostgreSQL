@@ -1,8 +1,8 @@
 import { ICustomer } from './customer.interface';
-import status from "http-status";
-import { PrismaQueryBuilder } from "../../builders/PrismaQueryBuilder";
-import AppError from "../../helpers/AppError";
-import prisma from "../../shared/prisma";
+import status from 'http-status';
+import { PrismaQueryBuilder } from '../../builders/PrismaQueryBuilder';
+import AppError from '../../helpers/AppError';
+import prisma from '../../shared/prisma';
 
 const createCustomerIntoDb = async (payload: ICustomer) => {
   const isExist = await prisma.customer.findUnique({
@@ -12,7 +12,7 @@ const createCustomerIntoDb = async (payload: ICustomer) => {
   });
 
   if (isExist) {
-    throw new AppError(status.CONFLICT, "Customer already exists");
+    throw new AppError(status.CONFLICT, 'Customer already exists');
   }
 
   const result = await prisma.customer.create({
@@ -22,13 +22,13 @@ const createCustomerIntoDb = async (payload: ICustomer) => {
 };
 
 const getAllCustomersFromDbWithQuery = async (query: any) => {
-  const { search = "", sort = "asc", page = 1, limit = 10 } = query;
+  const { search = '', sort = 'asc', page = 1, limit = 10 } = query;
 
   return await PrismaQueryBuilder({
     model: prisma.customer,
-    searchFields: ["name"],
+    searchFields: ['name'],
     search,
-    sortField: "createdAt",
+    sortField: 'createdAt',
     sortOrder: sort,
     page: Number(page),
     limit: Number(limit),
@@ -42,22 +42,25 @@ const getSingleCustomerFromDb = async (id: string) => {
     },
   });
   if (!result || result.isDeleted) {
-    throw new AppError(status.NOT_FOUND, "Customer not found");
+    throw new AppError(status.NOT_FOUND, 'Customer not found');
   }
 
   return result;
 };
 
-const updateCustomerIntoDb = async (id: string, payload: Partial<ICustomer>) => {
+const updateCustomerIntoDb = async (
+  id: string,
+  payload: Partial<ICustomer>,
+) => {
   const isExist = await prisma.customer.findUnique({
     where: {
       customerId: id,
     },
   });
   if (!isExist) {
-    throw new AppError(status.NOT_FOUND, "Customer not found");
+    throw new AppError(status.NOT_FOUND, 'Customer not found');
   } else if (isExist.isDeleted) {
-    throw new AppError(status.NOT_FOUND, "Customer Is Deleted");
+    throw new AppError(status.NOT_FOUND, 'Customer Is Deleted');
   }
 
   const result = await prisma.customer.update({
@@ -76,7 +79,7 @@ const softDeleteCustomerFromDb = async (id: string) => {
     },
   });
   if (!isExist || isExist.isDeleted) {
-    throw new AppError(status.NOT_FOUND, "Customer not found");
+    throw new AppError(status.NOT_FOUND, 'Customer not found');
   }
 
   const result = await prisma.customer.update({

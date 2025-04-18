@@ -187,17 +187,16 @@ const config = {
     "db"
   ],
   "activeProvider": "postgresql",
-  "postinstall": true,
   "inlineDatasources": {
     "db": {
       "url": {
         "fromEnvVar": "DATABASE_URL",
-        "value": null
+        "value": "postgresql://postgres.zjusgejzpyidqjirgizt:Sojib@123@aws-0-ap-southeast-1.pooler.supabase.com:6543/postgres?pgbouncer=true"
       }
     }
   },
-  "inlineSchema": "generator client {\n  provider = \"prisma-client-js\"\n  output   = \"../generated/prisma\"\n}\n\ndatasource db {\n  provider = \"postgresql\"\n  url      = env(\"DATABASE_URL\")\n}\n\nmodel Customer {\n  customerId String   @id @default(uuid())\n  name       String\n  email      String   @unique\n  phone      String\n  isDeleted  Boolean  @default(false)\n  createdAt  DateTime @default(now())\n  updatedAt  DateTime @updatedAt\n  bikes      Bike[]\n\n  @@map(\"customers\")\n}\n\nmodel Bike {\n  bikeId         String          @id @default(uuid())\n  brand          String\n  model          String\n  year           Int\n  customerId     String\n  isDeleted      Boolean         @default(false)\n  createdAt      DateTime        @default(now())\n  updatedAt      DateTime        @updatedAt\n  serviceRecords ServiceRecord[]\n  customer       Customer        @relation(fields: [customerId], references: [customerId])\n\n  @@map(\"bikes\")\n}\n\nmodel ServiceRecord {\n  serviceId      String              @id @default(uuid())\n  bikeId         String\n  serviceDate    DateTime\n  completionDate DateTime?\n  description    String\n  status         ServiceRecordStatus\n  isDeleted      Boolean             @default(false)\n  createdAt      DateTime            @default(now())\n  updatedAt      DateTime            @updatedAt\n  Bike           Bike                @relation(fields: [bikeId], references: [bikeId])\n\n  @@map(\"service_records\")\n}\n\nenum ServiceRecordStatus {\n  pending\n  in_progress\n  done\n}\n",
-  "inlineSchemaHash": "2f40f8ab63b43468ce58bb83d8b8adcbd50a4c22f4aa47cda179620c65aeab6c",
+  "inlineSchema": "generator client {\n  provider = \"prisma-client-js\"\n  output   = \"../generated/prisma\"\n}\n\ndatasource db {\n  provider  = \"postgresql\"\n  url       = env(\"DATABASE_URL\")\n  directUrl = env(\"DIRECT_URL\")\n}\n\nmodel Customer {\n  customerId String   @id @default(uuid())\n  name       String\n  email      String   @unique\n  phone      String\n  isDeleted  Boolean  @default(false)\n  createdAt  DateTime @default(now())\n  updatedAt  DateTime @updatedAt\n  bikes      Bike[]\n\n  @@map(\"customers\")\n}\n\nmodel Bike {\n  bikeId         String          @id @default(uuid())\n  brand          String\n  model          String\n  year           Int\n  customerId     String\n  isDeleted      Boolean         @default(false)\n  createdAt      DateTime        @default(now())\n  updatedAt      DateTime        @updatedAt\n  serviceRecords ServiceRecord[]\n  customer       Customer        @relation(fields: [customerId], references: [customerId])\n\n  @@map(\"bikes\")\n}\n\nmodel ServiceRecord {\n  serviceId      String              @id @default(uuid())\n  bikeId         String\n  serviceDate    DateTime\n  completionDate DateTime?\n  description    String\n  status         ServiceRecordStatus\n  isDeleted      Boolean             @default(false)\n  createdAt      DateTime            @default(now())\n  updatedAt      DateTime            @updatedAt\n  Bike           Bike                @relation(fields: [bikeId], references: [bikeId])\n\n  @@map(\"service_records\")\n}\n\nenum ServiceRecordStatus {\n  pending\n  in_progress\n  done\n}\n",
+  "inlineSchemaHash": "7e530b14a143808a24e579e822f002328134ef99f78e8df6c43f6766d83fe9cd",
   "copyEngine": true
 }
 

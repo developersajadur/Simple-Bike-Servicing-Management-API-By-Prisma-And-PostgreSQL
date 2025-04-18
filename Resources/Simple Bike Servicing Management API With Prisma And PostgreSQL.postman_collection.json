@@ -1,0 +1,426 @@
+{
+	"info": {
+		"_postman_id": "a51fb603-4511-4dcb-93d2-fbd5ebad995b",
+		"name": "Simple Bike Servicing Management API With Prisma And PostgreSQL",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "39124117"
+	},
+	"item": [
+		{
+			"name": "Customer",
+			"item": [
+				{
+					"name": "Create Customer",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"sojib\",\r\n  \"email\": \"sojib@example.com\",\r\n  \"phone\": \"123-4576-78944\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/customers",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"customers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Customer With Query",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/customers?search=john&page=1&limit=5&sort=asc",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"customers"
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": "john"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "5"
+								},
+								{
+									"key": "sort",
+									"value": "asc"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Single Customer By Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/customers/f37943d0-a850-41b3-a285-c3e1cdefaf3f",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"customers",
+								"f37943d0-a850-41b3-a285-c3e1cdefaf3f"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Customer",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Progamming Hero\",\r\n  \"phone\": \"555-123-999966\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/customers/f37943d0-a850-41b3-a285-c3e1cdefaf3f",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"customers",
+								"f37943d0-a850-41b3-a285-c3e1cdefaf3f"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Soft Delete Customer",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/customers/f37943d0-a850-41b3-a285-c3e1cdefaf3f",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"customers",
+								"f37943d0-a850-41b3-a285-c3e1cdefaf3f"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Bike",
+			"item": [
+				{
+					"name": "Create Bike",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"brand\": \"Honda\",\r\n  \"model\": \"Hundai\",\r\n  \"year\": 2019,\r\n  \"customerId\": \"f37943d0-a850-41b3-a285-c3e1cdefaf3f\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/bikes",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"bikes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Bike With Query",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/bikes?search=yamaha&page=1&limit=5&sort=asc",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"bikes"
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": "yamaha"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "5"
+								},
+								{
+									"key": "sort",
+									"value": "asc"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Single Bike By Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/bikes/1732cda0-2d94-4321-b74f-cc99cba5f357",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"bikes",
+								"1732cda0-2d94-4321-b74f-cc99cba5f357"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Bike",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"model\": \"Hunda 2.0\",\r\n  \"year\": 2020\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/bikes/1732cda0-2d94-4321-b74f-cc99cba5f357",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"bikes",
+								"1732cda0-2d94-4321-b74f-cc99cba5f357"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Soft Delete Bike",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/bikes/1732cda0-2d94-4321-b74f-cc99cba5f357",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"bikes",
+								"1732cda0-2d94-4321-b74f-cc99cba5f357"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Service Record",
+			"item": [
+				{
+					"name": "Create Service Record",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"bikeId\": \"a276c759-8a81-42cd-a9d8-815e73f5609d\",\r\n    \"serviceDate\": \"2025-09-12T10:15:00.000Z\",\r\n    \"description\": \"Battery replacement\",\r\n    \"status\": \"pending\"\r\n  }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/services",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"services"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Service Record With Query",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/services?search=battery&page=1&limit=5&sort=asc",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"services"
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": "battery"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "5"
+								},
+								{
+									"key": "sort",
+									"value": "asc"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Service Record With Query Copy",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/services/status",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"services",
+								"status"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Single Service Record",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/services/2a8ee5e8-4689-4397-acda-c950569f19f0",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"services",
+								"2a8ee5e8-4689-4397-acda-c950569f19f0"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Service Record",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"completionDate\": \"2025-04-11T15:30:00.000Z\",\r\n   \"description\": \"Nat Boltuu\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/services/2a8ee5e8-4689-4397-acda-c950569f19f0",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"services",
+								"2a8ee5e8-4689-4397-acda-c950569f19f0"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "BASE_URL",
+			"value": "http://localhost:5000/api",
+			"type": "string"
+		}
+	]
+}

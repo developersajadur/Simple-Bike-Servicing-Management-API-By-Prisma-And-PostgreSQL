@@ -29,24 +29,20 @@ export async function PrismaQueryBuilder<T>({
   if (search && searchFields.length > 0) {
     searchFilter = {
       OR: searchFields.map((field) => ({
-        [field]: { contains: search, mode: 'insensitive' }
-      }))
+        [field]: { contains: search, mode: 'insensitive' },
+      })),
     };
   }
 
   const combinedWhere = {
-    AND: [
-      { isDeleted: false },
-      where,
-      searchFilter
-    ]
+    AND: [{ isDeleted: false }, where, searchFilter],
   };
 
   const result = await model.findMany({
     where: combinedWhere,
     orderBy: { [sortField]: sortOrder },
     skip,
-    take: limit
+    take: limit,
   });
 
   const total = await model.count({ where: combinedWhere });
@@ -56,7 +52,7 @@ export async function PrismaQueryBuilder<T>({
     meta: {
       page,
       limit,
-      total
-    }
+      total,
+    },
   };
 }
