@@ -2,18 +2,17 @@ import status from "http-status";
 import AppError from "../../helpers/AppError";
 import prisma from "../../shared/prisma";
 import { PrismaQueryBuilder } from "../../builders/PrismaQueryBuilder";
+import { IBike } from "./bike.interface";
 
-const createBikeIntoDb = async (payload: any) => {
+const createBikeIntoDb = async (payload: IBike) => {
   const isExistCustomer = await prisma.customer.findUnique({
     where: {
       customerId: payload?.customerId,
     },
   });
 
-  if (!isExistCustomer) {
+  if (!isExistCustomer || isExistCustomer.isDeleted) {
     throw new AppError(status.NOT_FOUND, "Customer not found");
-  } else if (isExistCustomer.isDeleted) {
-    throw new AppError(status.NOT_FOUND, "Customer is deleted");
   }
 
   const result = await prisma.bike.create({
@@ -48,7 +47,7 @@ const getSingleBikeFromDb = async (id: string) => {
   return result;
 };
 
-const updateBikeIntoDb = async (id: string, payload: any) => {
+const updateBikeIntoDb = async (id: string, payload: Partial<IBike>) => {
     const isExist = await prisma.bike.findUnique({
         where: {
         bikeId: id,
