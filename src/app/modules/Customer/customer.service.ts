@@ -30,11 +30,9 @@ const getSingleCustomerFromDb = async (id: string) => {
             customerId: id
         }
     })
-    if (!result) {
-        throw new AppError(status.NOT_FOUND ,'Customer not found')
-    }else if(result.isDeleted){
-        throw new AppError(status.NOT_FOUND ,'Customer Is Deleted')
-    }
+    if (!result || result.isDeleted) {
+        throw new AppError(status.NOT_FOUND, "Customer not found");
+      }
 
 
 
@@ -69,10 +67,8 @@ const softDeleteCustomerFromDb = async (id: string) => {
             customerId: id
         }
     })
-    if (!isExist) {
+    if (!isExist || isExist.isDeleted) {
         throw new AppError(status.NOT_FOUND ,'Customer not found')
-    }else if(isExist.isDeleted){
-        throw new AppError(status.NOT_FOUND ,'Customer Is Already Deleted')
     }
 
 
